@@ -1,0 +1,18 @@
+{
+  "home": {
+    "name": "Home",
+    "path": "/"
+  },
+  "apiHub": {
+    "name": "API Hub",
+    "path": "/api-hub"
+  },
+  "about": {
+    "name": "About",
+    "path": "/about"
+  },
+  "contact": {
+    "name": "Contact",
+    "path": "/contact"
+  }
+}  
