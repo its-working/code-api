@@ -1,5 +1,5 @@
 <template>
-  <div class="px-3 flex flex-row w-full">
+  <div class="px-3 flex flex-row justify-end w-full">
     <Filters />
     <div class="ApiSection text-black m-3 w-4/5">
       <CreateApi />

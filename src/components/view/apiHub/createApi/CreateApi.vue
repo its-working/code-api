@@ -16,6 +16,6 @@
   
   <style>
 .gradientCreateApiNav{
-  @apply bg-gradient-to-r from-gray-800 via-gray-900 to-black mt-3 h-[4rem] text-gray-200 rounded-lg px-3 flex justify-between items-center
+  @apply bg-gradient-to-r from-slate-950 via-slate-800 to-slate-950 mt-3 h-[4rem] text-gray-200 rounded-lg px-3 flex justify-between items-center
 }
 </style>

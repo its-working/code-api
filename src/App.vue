@@ -7,8 +7,9 @@
 
 <script>
 import MainNav from './components/main-components/navBar/Nav.vue';
+
 export default {
-  name: 'App',
+    name: 'App',
   components: {
     'Navbar' : MainNav
   }
