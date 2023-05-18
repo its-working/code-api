@@ -22,11 +22,3 @@
   };
   </script>
   
-  <style>
-.cards{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  width: calc(100% - 20px);
-} 
- </style>

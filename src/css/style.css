@@ -1,3 +1,9 @@
+:root{
+  --gold: #FFD700
+  --cyan: #00FFFF
+  --magenta: #FF00FF
+}
+
 .nav-link {
   @apply border-slate-400 hover:border-b-2 ease-in duration-75 hover:text-slate-400;
 }
@@ -31,3 +37,75 @@
 .tags .tag{
     @apply bg-slate-800 font-medium hover:bg-slate-600 text-slate-300 w-fit p-1 px-4 m-1 rounded-full text-sm
 }
+.slate-btn-color{
+  @apply text-slate-100 bg-slate-600 duration-300 ease-in-out hover:bg-slate-500 p-2 rounded-lg px-3
+}
+/* Card animation starts */
+.cards{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: calc(100% - 20px);
+} 
+
+.card {
+  background-color: rgba(255, 255, 255, 0.02);
+  border-radius: 10px;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.gradientCreateApiNav{
+  @apply bg-gradient-to-r from-slate-950 via-slate-800 to-slate-950 mt-3 h-[4rem] text-gray-200 rounded-lg px-3 flex justify-between items-center
+}
+
+.card::before {
+  background: radial-gradient(
+    800px circle at var(--mouse-x) var(--mouse-y),
+    rgba(160, 160, 160, 0.199),
+    transparent 40%
+  );
+
+  border-radius: inherit;
+  content: "";
+  opacity: 0;
+  height: 100%;
+  left: 0;
+  transition: opacity 500ms;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  z-index: 2;
+}
+/* Card animation ends */
+
+/* Gradient text animation starts */
+@keyframes background-pan {
+  from{
+    background-position: 0% center;
+  }
+  to{
+    background-position: -200% center;
+  }
+}
+
+.magic {
+  animation: background-pan 3s linear infinite;
+  background: linear-gradient(
+    to right,
+   #FFD700,
+   #00FFFF,
+   #FF00FF,
+   #FFD700
+    );
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+}
+/* Gradient text animation ends */

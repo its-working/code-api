@@ -7,7 +7,6 @@
       </div>
     </div>
     <TagsComponent />
-    <span class="text-slate-400">I am Filter component</span>
   </div>
 </template>
 
