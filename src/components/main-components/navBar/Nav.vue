@@ -21,7 +21,6 @@
 import LinkItem from './NavLink.vue';
 import routes from '../../../routers/routes.json';
 
-console.log(routes);
 export default {
   name: 'MainNav', 
   components: {
@@ -34,3 +33,8 @@ export default {
   }
 }
 </script>
+<style>
+#navBarContainer{
+  z-index: 100;
+}
+</style>

@@ -1,7 +1,7 @@
 <template>
   <div class="gradientCreateApiNav">
-    <div class="text-2xl font-bold text-gray-100">Create API</div>
-    <div class="text-gray-100 ml-2 bg-gray-700 hover:bg-gray-600 font-medium p-2 rounded-lg px-3">Create your own API</div>
+    <div class="text-2xl font-bold text-gray-100">API Playground</div>
+    <div class="text-gray-100 ml-2 bg-gray-700 hover:bg-gray-600 font-medium p-2 rounded-lg px-3">Code your API</div>
   </div>
 </template>
   
