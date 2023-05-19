@@ -3,7 +3,7 @@
     <h5 class="heading">
       Tags
     </h5>
-    <div class="tags">
+    <div class="tags mx-auto">
       <div
         v-for="index in 10"
         :key="index"

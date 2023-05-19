@@ -8,7 +8,7 @@
     </button>
 
     <!-- Filter toggle btn -->
-    <div @click="toggleFilter" class="m-3 p-2 border-2 border-white hover:bg-white hover:text-black  rounded-md mx-auto flex md:hidden flex-row items-center justify-center">
+    <div @click="toggleFilter" class="m-3 p-2 border-2 border-white hover:bg-white hover:text-black rounded-md mx-auto flex md:hidden flex-row items-center justify-center">
       <p class="font-semibold ">Filter</p>
       <ion-icon class="ms-2 text-2xl" name="filter-circle-outline"></ion-icon>
     </div>
