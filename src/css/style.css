@@ -4,18 +4,25 @@
   --magenta: #FF00FF
 }
 
+/* side and nav bar starts */
 .nav-link {
-  @apply border-slate-400 hover:border-b-2 ease-in duration-75 hover:text-slate-400;
+  @apply border-slate-400 m-1 hover:border-b-2 ease-in duration-75 hover:text-slate-400 text-xl m-2 md:m-0 md:text-sm;
 }
 .nav-link .active {
   @apply border-b-2 text-slate-300 border-slate-300;
 }
 #navBarContainer {
-  @apply bg-slate-900 shadow-slate-800 text-white shadow-md text-sm h-16 flex justify-between flex-row flex-wrap;
+  @apply bg-slate-900 shadow-slate-800 text-white shadow-md text-sm h-16 ;
 }
+
+#navBarContent{
+  @apply fixed top-0 md:relative right-0 w-full sm:w-2/4 h-screen md:w-full md:h-full max-[767px]:bg-slate-950  flex-col md:flex-row justify-start md:justify-between items-center;
+}
+
 .nav-items {
-  @apply flex flex-row space-x-10 font-medium items-center px-12 flex-wrap;
+  @apply flex flex-col m-2 md:flex-row md:space-x-10 font-medium items-center px-12 flex-wrap;
 }
+/* side and nav bar starts */
 ::-webkit-scrollbar-thumb {
   background-color: #718096;
 }
@@ -23,12 +30,18 @@
   @apply scrollbar-thin scrollbar-track-zinc-900 scrollbar-thumb-slate-400 scrollbar-thumb-rounded;
 }
 .ApiSection {
- @apply me-[22%] mt-[4.5rem]
+ @apply  mt-[4.5rem]
 }
 .wrapper{
-    @apply flex flex-col px-2 my-3
+    @apply flex flex-row md:flex-col px-2 my-3 justify-between items-center;
 }
 .wrapper .heading{
+    @apply font-bold text-xl mb-3 underline underline-offset-8 text-slate-200 text-center
+}
+.sub-wrapper{
+  @apply flex flex-col px-2 my-3;
+}
+.sub-wrapper .heading{
     @apply font-bold text-xl mb-3 underline underline-offset-8 text-slate-200 text-center
 }
 .tags{
@@ -61,7 +74,7 @@
 }
 
 .gradientCreateApiNav{
-  @apply bg-gradient-to-r from-slate-950 via-slate-800 to-slate-950 mt-3 h-[4rem] text-gray-200 rounded-lg px-3 flex justify-between items-center
+  @apply bg-gradient-to-r from-slate-950 via-slate-800 to-slate-950 mt-3 p-2 text-gray-200 rounded-lg px-3
 }
 
 .card::before {

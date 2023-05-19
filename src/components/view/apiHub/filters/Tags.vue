@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="sub-wrapper">
     <h5 class="heading">
       Tags
     </h5>
