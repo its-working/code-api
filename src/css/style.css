@@ -4,6 +4,10 @@
   --magenta: #FF00FF
 }
 
+.flex-center{
+  @apply flex items-center justify-center
+}
+
 /* side and nav bar starts */
 .nav-link {
   @apply border-slate-400 m-1 hover:border-b-2 ease-in duration-75 hover:text-slate-400 text-xl m-2 md:m-0 md:text-sm;
@@ -22,6 +26,12 @@
 .nav-items {
   @apply flex flex-col m-2 md:flex-row md:space-x-10 font-medium items-center px-12 flex-wrap;
 }
+.navAlign{
+  @apply text-sm md:text-lg font-mono flex justify-between items-center flex-row flex-wrap;
+}
+.navFilterBtn{
+  @apply m-3 p-2 border-2 border-white hover:bg-white hover:text-black rounded-md mx-auto flex md:hidden flex-row items-center justify-center;
+}
 /* side and nav bar starts */
 ::-webkit-scrollbar-thumb {
   background-color: #718096;
@@ -31,24 +41,6 @@
 }
 .ApiSection {
  @apply  mt-[4.5rem]
-}
-.wrapper{
-    @apply flex flex-row md:flex-col px-2 my-3 justify-between items-center;
-}
-.wrapper .heading{
-    @apply font-bold text-xl mb-3 underline underline-offset-8 text-slate-200 text-center
-}
-.sub-wrapper{
-  @apply flex flex-col px-2 my-3;
-}
-.sub-wrapper .heading{
-    @apply font-bold text-xl mb-3 underline underline-offset-8 text-slate-200 text-center
-}
-.tags{
-    @apply flex flex-row mt-2 flex-wrap max-w-xs justify-center
-}
-.tags .tag{
-    @apply bg-slate-800 font-medium hover:bg-slate-600 text-slate-300 w-fit p-1 px-4 m-1 rounded-full text-sm
 }
 .slate-btn-color{
   @apply text-slate-100 bg-slate-600 duration-300 ease-in-out hover:bg-slate-500 p-2 rounded-lg px-3
@@ -122,3 +114,50 @@
   white-space: nowrap;
 }
 /* Gradient text animation ends */
+/* Filter tailwind css starts */
+.filter-position{
+  @apply w-screen h-screen md:h-[calc(100vh-5rem)] mt-[4.4rem] md:w-2/5 lg:w-2/6 z-10 bg-gradient-to-r from-slate-950 to-slate-900  flex-col  rounded-lg px-2 py-3 overflow-y-auto scrollbar-customized fixed right-0
+}
+.wrapper{
+  @apply flex flex-row md:flex-col px-2 my-3 justify-between items-center;
+}
+.wrapper .heading{
+  @apply font-bold text-xl mb-3 underline underline-offset-8 text-slate-200 text-center
+}
+.sub-wrapper{
+@apply flex flex-col px-2 my-3;
+}
+.sub-wrapper .heading{
+  @apply font-bold text-xl mb-3 underline underline-offset-8 text-slate-200 text-center
+}
+.tags{
+  @apply flex flex-row mt-2 flex-wrap max-w-xs justify-center
+}
+.tags .tag{
+  @apply bg-slate-800  cursor-pointer font-medium hover:bg-slate-600 text-slate-300 w-fit p-1 px-4 m-1 rounded-full text-sm
+}
+/* Filter tailwind css ends */
+
+/* form css starts */
+.dark-form-popUp{
+  @apply bg-gradient-to-r from-slate-950 via-slate-800 to-slate-950 border-2 drop-shadow-xl border-slate-700 rounded-lg h-[80vh] w-[80vw] md:w-[60vw] lg:w-[40vw] fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] z-50 pt-10 pb-4;
+}
+.form-textarea{
+  @apply appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500;
+}
+.form-input{
+  @apply appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500;
+}
+.form-label{
+  @apply block uppercase tracking-wide text-white text-xs font-bold mb-2;
+}
+.form-btn{
+  @apply shadow bg-indigo-600 hover:bg-indigo-400 focus:outline-none text-white font-bold py-2 px-6 rounded;
+}
+.form-checkBox{
+  @apply mr-2 leading-tight;
+}
+.form-heading{
+  @apply text-3xl sm:text-4xl leading-normal font-extrabold tracking-tight text-slate-200;
+}
+/* form css ends */

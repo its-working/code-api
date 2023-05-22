@@ -1,0 +1,44 @@
+{
+  "tags": [
+    {
+      "id": 1,
+      "name": "Searching"
+    },
+    {
+      "id": 2,
+      "name": "Sorting"
+    },
+    {
+      "id": 3,
+      "name": "Filtering"
+    },
+    {
+      "id": 4,
+      "name": "Pagination"
+    },
+    {
+      "id": 5,
+      "name": "Validation"
+    },
+    {
+      "id": 6,
+      "name": "Authentication"
+    },
+    {
+      "id": 7,
+      "name": "Caching"
+    },
+    {
+      "id": 8,
+      "name": "Error Handling"
+    },
+    {
+      "id": 9,
+      "name": "Logging"
+    },
+    {
+      "id": 10,
+      "name": "File Upload"
+    }
+  ]
+}

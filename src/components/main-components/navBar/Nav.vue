@@ -1,6 +1,6 @@
 <template>
   <!-- Nav Bar Wrapper -->
-  <div id="navBarContainer" class="fixed top-0 w-screen">
+  <div id="navBarContainer" class="fixed top-0 w-screen z-20">
 
       <img class="logo w-[9rem] absolute ms-[2rem] -translate-y-10" :src="require('../../../images/logo.png')">
     
@@ -54,8 +54,3 @@ export default {
 }
 }
 </script>
-<style>
-#navBarContainer{
-  z-index: 100;
-}
-</style>
