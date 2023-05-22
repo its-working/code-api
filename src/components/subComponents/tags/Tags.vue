@@ -2,7 +2,7 @@
   <div class="mx-3 w-full">
     <h6 class="form-label">Add a Tag:</h6>
     <input type="text" class="form-input" placeholder="eg: Sorting + Enter" v-model="newTag" @keydown.enter="addTag">
-    <Tag :tags="selectedTags" />
+    <Tag :tags="selectedTags" @removedTagId="removeTag"/>
   </div>
 </template>
 
@@ -32,6 +32,9 @@ export default {
         this.selectedTags.push(newTagObj);
         this.newTag = '';
       }
+    },
+    removeTag(id){
+      this.selectedTags = this.selectedTags.filter(tag => tag.id !== id);
     }
   }
 };
