@@ -1,6 +1,4 @@
 <template>
-  <form>
-    <!-- exit btn ends -->
     <div class="container mx-auto p-5">
       <div class="text-center my-6">
         <h3 class="form-heading">Create Your <span class="magic">API Magic!</span></h3>
@@ -38,7 +36,6 @@
         </div>
       </div>
     </div>
-  </form>
 </template>
 
 <script>

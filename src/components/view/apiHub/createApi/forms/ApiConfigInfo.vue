@@ -1,6 +1,4 @@
 <template>
-    <form>
-      <!-- exit btn ends -->
       <div class="container mx-auto p-5">
         <div class="text-center my-6">
           <h3 class="form-heading">API <span class="magic">Wizard's Chamber</span></h3>
@@ -59,7 +57,6 @@
         </div>
         
       </div>
-    </form>
   </template>
   
   <script>

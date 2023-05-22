@@ -1,11 +1,11 @@
 <template>
-  <div class="w-full text-slate-50 p-3 flex justify-center flex-row items-center">
+  <div class="w-full text-slate-50 p-3 flex justify-center flex-col md:flex-row items-center">
     <div class="card w-full p-3 m-0" @mousemove="handleOnMouseMove">
       <h2 class="text-2xl font-bold mb-4">{{ data.name }}</h2>
       <p class="text-lg">{{ data.description }}</p>
     </div>
       <button
-        class="h-full ms-3 font-semibold font-mono slate-btn-color"
+        class="h-full ms-3 font-semibold font-mono slate-btn-color my-3 md:mt-0"
       >
         Try it now
       </button>

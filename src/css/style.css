@@ -139,8 +139,8 @@
 /* Filter tailwind css ends */
 
 /* form css starts */
-.dark-form-popUp{
-  @apply bg-gradient-to-r from-slate-950 via-slate-800 to-slate-950 border-2 drop-shadow-xl border-slate-700 rounded-lg h-[80vh] w-[80vw] md:w-[60vw] lg:w-[40vw] fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] z-50 pt-10 pb-4;
+.api-form-popUp{
+  @apply bg-gradient-to-r from-slate-950 via-slate-800 to-slate-950 border-2 drop-shadow-xl border-slate-700 rounded-lg h-[80vh] w-[90vw] md:w-[60vw] lg:w-[40vw] fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] z-50 pt-10 pb-4;
 }
 .form-textarea{
   @apply appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500;
