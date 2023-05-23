@@ -1,69 +1,110 @@
 <template>
-      <div class="container mx-auto p-5">
-        <div class="text-center my-6">
-          <h3 class="form-heading">API <span class="magic">Wizard's Chamber</span></h3>
-        </div>
-  
-        <div class="flex flex-wrap -mx-3 mb-6">
-          <div class="w-full px-3">
-            <label class="form-label" for="grid-password"> Select Programming Language </label>
-            <select class="form-input">
-                <option >C</option>
-                <option>C++</option>
-                <option>PHP</option>
-                <option>Python</option>
-            </select>
-          </div>
-        </div>
-  
-        <div class="flex flex-wrap -mx-3 mb-6">
-        <div class="w-full px-3">
-          <label class="form-label" for="grid-password"> Parameters </label>
-          <input
-            class="form-input"
-            type="number"
-            placeholder="Number of parameters in your API "
-          />
-        </div>
-      </div>
+  <div class="container mx-auto p-5">
+    <div class="text-center my-6">
+      <h3 class="form-heading">API <span class="magic">Wizard's Chamber</span></h3>
+    </div>
 
-      <div class="flex flex-wrap -mx-3 mb-6">
-          <div class="w-full px-3">
-            <label class="form-label" for="grid-password"> Expected Form Response </label>
-            <select class="form-input">
-                <option >XML</option>
-                <option>JSON</option>
-                <option>Integer</option>
-                <option>String</option>
-            </select>
-          </div>
-        </div>
-        
-      <div class="flex flex-wrap -mx-3 mb-6">
-          <div class="w-full px-3">
-            <label class="form-label" for="grid-password"> Expected Form Response </label>
-            <select class="form-input">
-                <option >GET</option>
-                <option>POST</option>
-                <option>PUT</option>
-            </select>
-          </div>
-        </div>
- 
-        <div class="flex flex-wrap -mx-3 mb-6">
-          <div class="flex justify-end w-full px-3">
-            <button class="form-btn" type="submit">Submit</button>
-          </div>
-        </div>
-        
+    <div class="flex flex-wrap -mx-3 mb-6">
+      <div class="w-full px-3">
+        <label class="form-label" for="grid-password">Select Programming Language</label>
+        <select v-model.trim="apiLanguage" class="form-input">
+          <option value="">--SELECT ONE--</option>
+          <option value="C">C</option>
+          <option value="C++">C++</option>
+          <option value="PHP">PHP</option>
+          <option value="PYTHON">Python</option>
+        </select>
+        <p class="form-error" v-if="!isValidApiProgLang">Please select a preferred programming language</p>
       </div>
-  </template>
-  
-  <script>
-  
-  export default {
-    name: "configInfoForm",
+    </div>
 
-  };
-  </script>
-  
+    <div class="flex flex-wrap -mx-3 mb-6">
+      <div class="w-full px-3">
+        <label class="form-label" for="grid-password">Parameters</label>
+        <input class="form-input" v-model.number="apiParameters" type="number" placeholder="Number of parameters in your API" min="1" max="10" />
+        <p class="form-error" v-if="!isValidApiParm">Minimum is 1, Maximum is 10</p>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap -mx-3 mb-6">
+      <div class="w-full px-3">
+        <label class="form-label" for="grid-password">Expected Form Response</label>
+        <select v-model.trim="apiResponse" class="form-input">
+          <option value="">--SELECT ONE--</option>
+          <option value="XML">XML</option>
+          <option value="JSON">JSON</option>
+          <option value="Integer">Integer</option>
+          <option value="String">String</option>
+        </select>
+        <p class="form-error" v-if="!isValidApiResponse">Please select a preferred response</p>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap -mx-3 mb-6">
+      <div class="w-full px-3">
+        <label class="form-label" for="grid-password">Expected Form Method</label>
+        <select v-model.trim="apiMethod" class="form-input">
+          <option value="">--SELECT ONE--</option>
+          <option value="GET">GET</option>
+          <option value="POST">POST</option>
+          <option value="PUT">PUT</option>
+        </select>
+        <p class="form-error" v-if="!isValidApiMethod">Please select one method</p>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap -mx-3 mb-6">
+      <div class="flex justify-end w-full px-3">
+        <button @click="submitForm" class="form-btn">Finalize</button>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "ConfigInfoForm",
+  data() {
+    return {
+      apiLanguage: "",
+      apiParameters: null,
+      apiResponse: "",
+      apiMethod: "",
+      isValidApiProgLang: true,
+      isValidApiParm: true,
+      isValidApiResponse: true,
+      isValidApiMethod: true,
+      isFormValid: false
+    };
+  },
+  methods: {
+    validateForm() {
+      this.isValidApiProgLang = this.apiLanguage !== "";
+      this.isValidApiParm = this.apiParameters >= 1 && this.apiParameters <= 10;
+      this.isValidApiResponse = this.apiResponse !== "";
+      this.isValidApiMethod = this.apiMethod !== "";
+
+      this.isFormValid =
+        this.isValidApiParm &&
+        this.isValidApiProgLang &&
+        this.isValidApiResponse &&
+        this.isValidApiMethod;
+    },
+    submitForm() {
+      this.validateForm();
+      if (this.isFormValid) {
+        this.$emit("update-form", {
+          formName: "configInfo",
+          form2Validated: true,
+          formData: {
+            apiLanguage: this.apiLanguage,
+            apiParameters: this.apiParameters,
+            apiResponse: this.apiResponse,
+            apiMethod: this.apiMethod
+          }
+        });
+      }
+    }
+  }
+};
+</script>

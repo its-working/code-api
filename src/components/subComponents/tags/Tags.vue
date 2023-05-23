@@ -1,7 +1,7 @@
 <template>
   <div class="mx-3 w-full">
     <h6 class="form-label">Add a Tag:</h6>
-    <input type="text" class="form-input" placeholder="eg: Sorting + Enter" v-model="newTag" @keydown.enter="addTag">
+    <input type="text" class="form-input" placeholder="eg: Sorting + Enter" v-model.trim="newTag" @keydown.enter="addTag">
     <Tag :tags="selectedTags" @removedTagId="removeTag"/>
   </div>
 </template>
@@ -24,13 +24,14 @@ export default {
   },
   methods: {
     addTag() {
-      if (this.newTag.trim() !== '') {
+      if (this.newTag !== '') {
         const newTagObj = {
           id: tagIdCounter++,
-          name: this.newTag.trim()
+          name: this.newTag
         };
         this.selectedTags.push(newTagObj);
         this.newTag = '';
+        this.$emit('apiTags', this.selectedTags)
       }
     },
     removeTag(id){
