@@ -22,9 +22,17 @@
       <div class="w-full px-3">
         <label class="form-label" for="grid-password">Parameters</label>
         <input class="form-input" v-model.number="apiParameters" type="number" placeholder="Number of parameters in your API" min="1" max="10" />
-        <p class="form-error" v-if="!isValidApiParm">Minimum is 1, Maximum is 10</p>
+        <p class="form-error" v-if="!isValidApiParm || apiParameters>10">Minimum is 1, Maximum is 10</p>
+      </div>
+
+      <div v-for="input in (apiParameters>10 ? 0 : apiParameters)" :key="input">
+        <div class="w-full px-3">
+          <label class="form-label" for="grid-password">Parm Name {{ input }}</label>
+          <input class="form-input" v-model.number="apiParametersName[input - 1]" type="text" placeholder="Parm Name" />
+        </div>
       </div>
     </div>
+
 
     <div class="flex flex-wrap -mx-3 mb-6">
       <div class="w-full px-3">
@@ -67,9 +75,10 @@ export default {
   data() {
     return {
       apiLanguage: "",
-      apiParameters: null,
+      apiParameters: 0,
       apiResponse: "",
       apiMethod: "",
+      apiParametersName: [],
       isValidApiProgLang: true,
       isValidApiParm: true,
       isValidApiResponse: true,
@@ -99,6 +108,7 @@ export default {
           formData: {
             apiLanguage: this.apiLanguage,
             apiParameters: this.apiParameters,
+            apiParametersName: this.apiParametersName,
             apiResponse: this.apiResponse,
             apiMethod: this.apiMethod
           }

@@ -1,14 +1,11 @@
 <template>
-    <div class="container mx-auto">
-        I am Home
-    </div>
-  </template>
-  
-  <script>
+  <div class="container mx-auto pt-60">
+I am Home
+  </div>
+</template>
+
+<script>
   export default {
     name: 'homeView', 
-    components: {
-    }
-  }
-  </script>
-  
+  };
+</script>

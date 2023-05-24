@@ -1,0 +1,7 @@
+{
+    "php": "<?php $variable = 'Hello, World!'; echo $variable; ?>",
+    "c++": "#include <iostream> int main() { std::cout << \"Hello, World!\"; return 0; }",
+    "c": "#include <stdio.h> int main() { printf(\"Hello, World!\"); return 0; }",
+    "python": "print('Hello, World!')"
+}
+  
