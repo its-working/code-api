@@ -32,7 +32,6 @@ import "codemirror/addon/display/placeholder.js";
 // theme
 import "codemirror/theme/dracula.css";
 
-import { ref } from "vue";
 export default {
   name: "codeApi",
   components: { Codemirror },
@@ -42,6 +41,7 @@ export default {
         parametersCount: 0,
         parameterNames: [],
         returnType: "",
+        apiLanguage: "",
     };
     },
     created() {
@@ -50,6 +50,7 @@ export default {
         this.parametersCount = data.apiParameters;
         this.parameterNames = data.apiParametersName;
         this.returnType = data.apiResponse;
+        this.apiLanguage = data.apiLanguage;
     }
     },
 
@@ -58,25 +59,43 @@ export default {
       const parameters = this.parameterNames.map((name) => `${name}`).join(", ");
       const returnType = this.returnType === "integer" ? "int" : this.returnType;
 
-      return `// Function signature
-${returnType} myFunction(${parameters}) {
-  // Write your code here
+      switch (this.apiLanguage) {
+
+        case "C":
+        return `${returnType} myFunction(${parameters}) {
+  // Write your C code here
 }`;
+
+        case "C++":
+        return `${returnType} myFunction(${parameters}) {
+  // Write your C++ code here
+}`;
+
+        case "PHP":
+        return `${returnType} myFunction($${parameters}) {
+  // Write your PHP code here
+}`;
+
+        case "PYTHON":
+        return `def myFunction(${parameters}) {
+  // Write your code Python here
+}`;
+
+        // Default condition
+        default:
+        return `ERROR`;
+      }
+
+     
     },
   },
   setup() {
-    const code = ref(`
-        var i = 0;
-        for (; i < 9; i++) {
-          console.log(i);
-          // more statements
-        }`);
-
-    return {
-      code,
+    
+    return {      
       cmOptions: {
         mode: "text/javascript", // Language mode
         theme: "dracula", // Theme
+        
       },
     };
   },
