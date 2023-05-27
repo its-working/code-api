@@ -18,7 +18,9 @@
 #navBarContainer {
   @apply bg-slate-900 shadow-slate-800 text-white shadow-md text-sm h-16 ;
 }
-
+.btn{
+  @apply shadow bg-indigo-600 transition-all duration-300 hover:bg-indigo-700 focus:outline-none text-white font-bold py-2 px-6 rounded;
+}
 #navBarContent{
   @apply fixed top-0 md:relative right-0 w-full sm:w-2/4 h-screen md:w-full md:h-full max-[767px]:bg-slate-950  flex-col md:flex-row justify-start md:justify-between items-center;
 }
@@ -33,12 +35,20 @@
   @apply m-3 p-2 border-2 border-white hover:bg-white hover:text-black rounded-md mx-auto flex md:hidden flex-row items-center justify-center;
 }
 /* side and nav bar starts */
+
+.section{
+  @apply flex flex-col items-center justify-center h-screen w-full;
+}
+
+/* scrollbar design starts */
 ::-webkit-scrollbar-thumb {
   background-color: #718096;
 }
 .scrollbar-customized {
   @apply scrollbar-thin scrollbar-track-zinc-900 scrollbar-thumb-slate-400 scrollbar-thumb-rounded;
 }
+/* scrollbar design ends */
+
 .ApiSection {
  @apply  mt-[4.5rem]
 }
@@ -137,6 +147,7 @@
   @apply bg-slate-800  cursor-pointer font-medium hover:bg-slate-600 text-slate-300 w-fit p-1 px-4 m-1 rounded-full text-sm
 }
 /* Filter tailwind css ends */
+
 
 /* form css starts */
 .api-form-popUp{
