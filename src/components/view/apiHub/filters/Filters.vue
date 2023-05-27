@@ -2,6 +2,10 @@
   <div
     class="filter-position">
     <div class="wrapper">
+      <button class="hidden md:flex text-white self-end text-3xl -mt-2 mb-3 duration-300 hover:scale-110">
+        <ion-icon name="chevron-back-circle-outline"></ion-icon>
+      </button>
+      
       <div class="heading ms-5 md:ms-0">
         Filters
       </div>

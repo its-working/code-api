@@ -83,6 +83,7 @@
 }
 
 .card::before {
+  
   background: radial-gradient(
     800px circle at var(--mouse-x) var(--mouse-y),
     rgba(160, 160, 160, 0.199),
@@ -129,7 +130,7 @@
 /* Gradient text animation ends */
 /* Filter tailwind css starts */
 .filter-position{
-  @apply w-screen h-screen md:h-[calc(100vh-5rem)] mt-[4.4rem] md:w-2/5 lg:w-2/6 z-10 bg-gradient-to-r from-slate-950 to-slate-900  flex-col  rounded-lg px-2 py-3 overflow-y-auto scrollbar-customized fixed right-0
+  @apply sticky top-[4.4rem] w-screen h-screen md:h-[calc(100vh-5rem)] mt-[4.4rem]  md:w-full z-10 bg-gradient-to-r from-slate-900 to-slate-950  flex-col  rounded-lg px-2 py-3 overflow-y-auto scrollbar-customized;
 }
 .wrapper{
   @apply flex flex-row md:flex-col px-2 my-3 justify-between items-center;

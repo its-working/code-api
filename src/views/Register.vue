@@ -26,7 +26,7 @@
             <button type="submit" class="btn">Login</button>
           </div>
         </form>
-        <p class="text-sm mt-10 text-center">Don't have an account? <a href="/register" class="text-blue-500 underline underline-offset-4 font-semibold">Register</a></p>
+        <p class="text-sm mt-10 text-center">Have a account? <a href="/login" class="text-blue-500 underline underline-offset-4 font-semibold">Login</a></p>
       </div>
     </div>
   </section>
