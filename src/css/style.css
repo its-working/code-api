@@ -148,11 +148,14 @@
 .form-input{
   @apply appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500;
 }
+.form-input-dark{
+  @apply w-full appearance-none px-3 py-2 bg-gray-800 border border-gray-600 rounded text-white leading-tight focus:outline-none focus:bg-gray-700 focus:border-gray-500;
+}
 .form-label{
   @apply block uppercase tracking-wide text-white text-xs font-bold mb-2;
 }
 .form-btn{
-  @apply shadow bg-indigo-600 hover:bg-indigo-400 focus:outline-none text-white font-bold py-2 px-6 rounded;
+  @apply shadow bg-indigo-600 hover:bg-indigo-700 focus:outline-none text-white font-bold py-2 px-6 rounded;
 }
 .form-checkBox{
   @apply mr-2 leading-tight;
