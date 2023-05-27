@@ -39,6 +39,9 @@
 .section{
   @apply flex flex-col items-center justify-center h-screen w-full;
 }
+.title{
+  @apply text-2xl font-bold mb-4 underline underline-offset-8;
+}
 
 /* scrollbar design starts */
 ::-webkit-scrollbar-thumb {

@@ -23,7 +23,7 @@
           </div>
           <!-- Nav Auth Item -->
           <ul class="nav-items">
-            <li class="nav-link"><router-link to="/">Login</router-link></li>
+            <li class="nav-link"><router-link to="/login">Login</router-link></li>
           </ul>
 
         </div>

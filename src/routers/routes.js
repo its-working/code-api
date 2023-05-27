@@ -4,6 +4,8 @@ import homeView from "../views/Home.vue";
 import apiHubView from "../views/ApiHub.vue";
 import aboutView from "../views/About.vue";
 import contactView from "../views/Contact.vue";
+import loginView from "../views/Login.vue";
+import registerView from "../views/Register.vue";
 import codeApi from "../views/CodeApi.vue";
 
 const routes = [
@@ -26,6 +28,16 @@ const routes = [
     path: "/contact",
     name: "Contact",
     component: contactView,
+  },
+  {
+    path: "/login",
+    name: "Login",
+    component: loginView,
+  },
+  {
+    path: "/register",
+    name: "Register",
+    component: registerView,
   },
   {
     path: "/api-hub/CodeApi",

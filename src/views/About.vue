@@ -12,7 +12,7 @@
 
         <div class="flex flex-col space-y-8 ">
           <div class="text-center py-3">
-            <h3 class="text-2xl font-bold mb-4">Why Choose CodeAPI?</h3>
+            <h3 class="title">Why Choose CodeAPI?</h3>
             <p class="text-lg">With CodeAPI, you get:</p>
           </div>
           <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -71,7 +71,7 @@
           </ul>
 
           <div class="text-center py-8">
-            <h3 class="text-2xl font-bold mb-4">Our Vision</h3>
+            <h3 class="title">Our Vision</h3>
             <p class="text-lg">
               At CodeAPI, we envision a world where developers can easily harness the
               power of custom APIs to enhance their projects, streamline workflows, and
@@ -81,7 +81,7 @@
           </div>
 
           <div class="text-center py-8 flex justify-between flex-col">
-            <h3 class="text-2xl font-bold mb-4">Get Started Today</h3>
+            <h3 class="title">Get Started Today</h3>
             <p class="text-lg">
               Join the CodeAPI community today and start building your own custom APIs.
             </p>
