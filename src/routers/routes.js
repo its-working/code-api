@@ -11,37 +11,37 @@ import codeApi from "../views/CodeApi.vue";
 const routes = [
   {
     path: "/",
-    name: "Home",
+    name: "home",
     component: homeView,
   },
   {
     path: "/api-hub",
-    name: "Api-Hub",
+    name: "apiHub",
     component: apiHubView,
   },
   {
     path: "/about",
-    name: "About",
+    name: "about",
     component: aboutView,
   },
   {
     path: "/contact",
-    name: "Contact",
+    name: "contact",
     component: contactView,
   },
   {
     path: "/login",
-    name: "Login",
+    name: "login",
     component: loginView,
   },
   {
     path: "/register",
-    name: "Register",
+    name: "register",
     component: registerView,
   },
   {
     path: "/api-hub/CodeApi",
-    name: "CodeApi",
+    name: "codeApi",
     component: codeApi,
   },
 ];
