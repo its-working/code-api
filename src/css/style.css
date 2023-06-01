@@ -53,7 +53,7 @@
 /* scrollbar design ends */
 
 .ApiSection {
- @apply  mt-[4.5rem]
+ @apply  mt-[4.5rem] w-full;
 }
 .slate-btn-color{
   @apply text-slate-100 bg-slate-600 duration-300 ease-in-out hover:bg-slate-500 p-2 rounded-lg px-3
@@ -79,7 +79,7 @@
 }
 
 .gradientCreateApiNav{
-  @apply bg-gradient-to-r from-slate-950 via-slate-800 to-slate-950 mt-3 p-2 text-gray-200 rounded-lg px-3
+  @apply bg-gradient-to-r from-slate-950 via-slate-800 to-slate-950 mt-3 p-2 text-gray-200 rounded-lg px-3;
 }
 
 .card::before {
@@ -128,15 +128,16 @@
   white-space: nowrap;
 }
 /* Gradient text animation ends */
+
 /* Filter tailwind css starts */
 .filter-position{
-  @apply sticky top-[4.4rem] w-screen h-screen md:h-[calc(100vh-5rem)] mt-[4.4rem]  md:w-full z-10 bg-gradient-to-r from-slate-900 to-slate-950  flex-col  rounded-lg px-2 py-3 overflow-y-auto scrollbar-customized;
+  @apply fixed md:sticky left-0 right-0 top-[4.4rem] h-screen md:h-[calc(100vh-5rem)] mt-[4.4rem] md:w-full overflow-y-auto z-10 bg-gradient-to-r from-slate-900 to-slate-950  flex-col rounded-lg px-2 py-3  scrollbar-customized;
 }
 .wrapper{
-  @apply flex flex-row md:flex-col px-2 my-3 justify-between items-center;
+  @apply flex flex-row flex-wrap justify-center md:flex-col px-2 my-3 md:justify-between items-center;
 }
-.wrapper .heading{
-  @apply font-bold text-xl mb-3 underline underline-offset-8 text-slate-200 text-center
+.filter-heading{
+  @apply font-bold text-xl my-3 underline underline-offset-8 text-slate-200 text-center
 }
 .sub-wrapper{
 @apply flex flex-col px-2 my-3;
