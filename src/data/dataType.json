@@ -1,0 +1,30 @@
+{
+    "C": {
+        "Integer": "int",
+        "Float": "float",
+        "String": "char*",
+        "Boolean": "bool",
+        "Character": "char"
+    },
+    "C++": {
+        "Integer": "int",
+        "Float": "float",
+        "String": "char*",
+        "Boolean": "bool",
+        "Character": "char"
+    },
+    "PHP": {
+        "Integer": "int",
+        "Float": "float",
+        "String": "string",
+        "Boolean": "bool",
+        "Character": "string"
+    },
+    "Python": {
+        "Integer": "int",
+        "Float": "float",
+        "String": "str",
+        "Boolean": "bool",
+        "Character": "str"
+    }
+}

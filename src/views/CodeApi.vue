@@ -31,71 +31,55 @@ import "codemirror/mode/javascript/javascript.js";
 import "codemirror/addon/display/placeholder.js";
 // theme
 import "codemirror/theme/dracula.css";
+//Syntax json
+import dataTypeJson from "/src/data/dataType.json";
+import codeSyntaxJson from "/src/data/codeSyntax.json";
 
 export default {
   name: "codeApi",
   components: { Codemirror },
-    data() {
+  data() {
     return {
-        value: localStorage.getItem('ApiDetails'),
-        parametersCount: 0,
-        parameterNames: [],
-        returnType: "",
-        apiLanguage: "",
+      value: localStorage.getItem("ApiDetails"),
+      parametersCount: 0,
+      parameterNames: [],
+      returnType: "",
+      apiLanguage: "",
+      dataTypeJson: dataTypeJson,
+      codeSyntaxJson: codeSyntaxJson,
     };
-    },
-    created() {
+  },
+  created() {
     const data = JSON.parse(this.value);
     if (data) {
-        this.parametersCount = data.apiParameters;
-        this.parameterNames = data.apiParametersName;
-        this.returnType = data.apiResponse;
-        this.apiLanguage = data.apiLanguage;
+      this.parametersCount = data.apiParameters;
+      this.parameterNames = data.apiParametersName;
+      this.returnType = data.apiResponse;
+      this.apiLanguage = data.apiLanguage;
     }
-    },
+  },
 
   computed: {
     codeTemplate() {
-      const parameters = this.parameterNames.map((name) => `${name}`).join(", ");
-      const returnType = this.returnType === "integer" ? "int" : this.returnType;
+      const syntax = codeSyntaxJson[this.apiLanguage];
+      if (syntax) {
+        const parameters = this.parameterNames.map((name) => `${name}`).join(", ");
+        const modifiedReturnType = dataTypeJson[this.apiLanguage][this.returnType];
 
-      switch (this.apiLanguage) {
-
-        case "C":
-        return `${returnType} myFunction(${parameters}) {
-  // Write your C code here
-}`;
-
-        case "C++":
-        return `${returnType} myFunction(${parameters}) {
-  // Write your C++ code here
-}`;
-
-        case "PHP":
-        return `${returnType} myFunction($${parameters}) {
-  // Write your PHP code here
-}`;
-
-        case "PYTHON":
-        return `def myFunction(${parameters}) {
-  // Write your code Python here
-}`;
-
-        // Default condition
-        default:
-        return `ERROR`;
+        return syntax.Syntax.replace("${returnType}", modifiedReturnType).replace(
+          "${parameters}",
+          parameters
+        );
+      } else {
+        return "ERROR"; // Default error message for unsupported languages
       }
-
-     
     },
   },
   setup() {
-    
-    return {      
+    return {
       cmOptions: {
         mode: "text/javascript", // Language mode
         theme: "dracula", // Theme
-        
       },
     };
   },

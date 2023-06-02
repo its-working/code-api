@@ -33,22 +33,6 @@
       >
         <ConfigInfo @update-form="updateFormInfo" />
       </div>
-      <!-- Button is hidden when both forms are not filled -->
-      <div
-        :class="{ hidden: !(form1Filled && form2Filled), '': form1Filled && form2Filled }"
-      >
-        <div class="flex flex-wrap -mx-3 mb-6 mt-24">
-          <div class="flex justify-end w-full px-3">
-            <button
-              @click="submitApiDetails"
-              class="form-btn text-4xl mx-auto"
-              type="submit"
-            >
-              Create Now
-            </button>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </template>
@@ -84,6 +68,7 @@ export default {
       } else if (info.formName === "configInfo") {
         this.formData = { ...this.formData, ...info.formData };
         this.form2Filled = info.form2Validated;
+        this.submitApiDetails();
       }
     },
     submitApiDetails() {

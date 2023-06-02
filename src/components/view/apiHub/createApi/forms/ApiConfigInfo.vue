@@ -14,25 +14,40 @@
           <option value="PHP">PHP</option>
           <option value="PYTHON">Python</option>
         </select>
-        <p class="form-error" v-if="!isValidApiProgLang">Please select a preferred programming language</p>
+        <p class="form-error" v-if="!isValidApiProgLang">
+          Please select a preferred programming language
+        </p>
       </div>
     </div>
 
     <div class="flex flex-wrap -mx-3 mb-6">
       <div class="w-full px-3">
         <label class="form-label" for="grid-password">Parameters</label>
-        <input class="form-input" v-model.number="apiParameters" type="number" placeholder="Number of parameters in your API" min="1" max="10" />
-        <p class="form-error" v-if="!isValidApiParm || apiParameters>10">Minimum is 1, Maximum is 10</p>
+        <input
+          class="form-input"
+          v-model.number="apiParameters"
+          type="number"
+          placeholder="Number of parameters in your API"
+          min="1"
+          max="10"
+        />
+        <p class="form-error" v-if="!isValidApiParm || apiParameters > 10">
+          Minimum is 1, Maximum is 10
+        </p>
       </div>
 
-      <div v-for="input in (apiParameters>10 ? 0 : apiParameters)" :key="input">
+      <div v-for="input in apiParameters > 10 ? 0 : apiParameters" :key="input">
         <div class="w-full px-3">
           <label class="form-label" for="grid-password">Parm Name {{ input }}</label>
-          <input class="form-input" v-model.number="apiParametersName[input - 1]" type="text" placeholder="Parm Name" />
+          <input
+            class="form-input"
+            v-model.number="apiParametersName[input - 1]"
+            type="text"
+            placeholder="Parm Name"
+          />
         </div>
       </div>
     </div>
-
 
     <div class="flex flex-wrap -mx-3 mb-6">
       <div class="w-full px-3">
@@ -44,7 +59,9 @@
           <option value="Integer">Integer</option>
           <option value="String">String</option>
         </select>
-        <p class="form-error" v-if="!isValidApiResponse">Please select a preferred response</p>
+        <p class="form-error" v-if="!isValidApiResponse">
+          Please select a preferred response
+        </p>
       </div>
     </div>
 
@@ -63,7 +80,9 @@
 
     <div class="flex flex-wrap -mx-3 mb-6">
       <div class="flex justify-end w-full px-3">
-        <button @click="submitForm" class="form-btn">Finalize</button>
+        <button @click="submitForm" class="form-btn text-4xl mx-auto" type="submit">
+          Craft Your API
+        </button>
       </div>
     </div>
   </div>
@@ -83,7 +102,7 @@ export default {
       isValidApiParm: true,
       isValidApiResponse: true,
       isValidApiMethod: true,
-      isFormValid: false
+      isFormValid: false,
     };
   },
   methods: {
@@ -110,11 +129,11 @@ export default {
             apiParameters: this.apiParameters,
             apiParametersName: this.apiParametersName,
             apiResponse: this.apiResponse,
-            apiMethod: this.apiMethod
-          }
+            apiMethod: this.apiMethod,
+          },
         });
       }
-    }
-  }
+    },
+  },
 };
 </script>
