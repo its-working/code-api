@@ -1,4 +1,4 @@
-{
+{   
     "C": {
         "Syntax": "${returnType} myFunction(${parameters}) {\n    // Write your C code here\n}"
     },
@@ -6,7 +6,7 @@
         "Syntax": "${returnType} myFunction(${parameters}) {\n    // Write your C++ code here\n}"
     },
     "PHP": {
-        "Syntax": "${returnType} myFunction($${parameters}) {\n    // Write your PHP code here\n}"
+        "Syntax": "${returnType} myFunction(${parameters}) {\n    // Write your PHP code here\n}"
     },
     "Python": {
         "Syntax": "def myFunction(${parameters}):\n    # Write your Python code here"

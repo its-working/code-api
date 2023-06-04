@@ -7,7 +7,12 @@
     <div class="flex flex-wrap -mx-3 mb-6">
       <div class="w-full px-3">
         <label class="form-label" for="grid-password">API Name</label>
-        <input class="form-input" type="text" v-model.trim="apiName" placeholder="Give Your API a Unique Spell Name" />
+        <input
+          class="form-input"
+          type="text"
+          v-model.trim="apiName"
+          placeholder="Give Your API a Unique Spell Name"
+        />
         <p class="form-error" v-if="!isValidApiName">Please enter a valid API name.</p>
       </div>
     </div>
@@ -15,8 +20,28 @@
     <div class="flex flex-wrap -mx-3 mb-6">
       <div class="w-full px-3">
         <label class="form-label" for="grid-password">API Description</label>
-        <textarea rows="10" class="form-textarea" v-model.trim="apiDescription" placeholder="Describe the Enchanting Purpose and Functionality"></textarea>
-        <p class="form-error" v-if="!isValidApiDescription">Please enter a valid API description.</p>
+        <textarea
+          rows="10"
+          class="form-textarea"
+          v-model.trim="apiDescription"
+          placeholder="Describe the Enchanting Purpose and Functionality"
+        ></textarea>
+        <p class="form-error" v-if="!isValidApiDescription">
+          Please enter a valid API description.
+        </p>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap -mx-3 mb-6">
+      <div class="w-full px-3">
+        <label class="form-label" for="grid-password">Expected Form Method</label>
+        <select v-model.trim="apiMethod" class="form-input">
+          <option value="">--SELECT ONE--</option>
+          <option value="GET">GET</option>
+          <option value="POST">POST</option>
+          <option value="PUT">PUT</option>
+        </select>
+        <p class="form-error" v-if="!isValidApiMethod">Please select one method</p>
       </div>
     </div>
 
@@ -39,17 +64,19 @@ import TagInput from "/src/components/subComponents/tags/Tags.vue";
 export default {
   name: "BasicInfoForm",
   components: {
-    TagInput
+    TagInput,
   },
   data() {
     return {
       apiName: "",
       apiDescription: "",
+      apiMethod: "",
       apiTags: [],
       isValidApiName: true,
       isValidApiDescription: true,
+      isValidApiMethod: true,
       isValidApiTags: true,
-      isFormValid: true
+      isFormValid: true,
     };
   },
   methods: {
@@ -57,7 +84,12 @@ export default {
       this.isValidApiName = this.apiName !== "";
       this.isValidApiDescription = this.apiDescription !== "";
       this.isValidApiTags = this.apiTags.length >= 1;
-      this.isFormValid = this.isValidApiName && this.isValidApiDescription && this.isValidApiTags;
+      this.isValidApiMethod = this.apiMethod !== "";
+      this.isFormValid =
+        this.isValidApiName &&
+        this.isValidApiDescription &&
+        this.isValidApiTags &&
+        this.isValidApiMethod;
     },
     submitForm() {
       this.validateForm();
@@ -68,11 +100,12 @@ export default {
           formData: {
             apiName: this.apiName,
             apiDescription: this.apiDescription,
-            apiTags: this.apiTags
-          }
+            apiTags: this.apiTags,
+            apiMethod: this.apiMethod,
+          },
         });
       }
-    }
-  }
+    },
+  },
 };
 </script>

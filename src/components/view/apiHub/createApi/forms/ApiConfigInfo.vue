@@ -45,6 +45,11 @@
             type="text"
             placeholder="Parm Name"
           />
+          <select v-model.trim="apiParametersType[input - 1]" class="form-input">
+            <option value="Boolean">Boolean</option>
+            <option value="Integer">Integer</option>
+            <option value="String">String</option>
+          </select>
         </div>
       </div>
     </div>
@@ -54,27 +59,13 @@
         <label class="form-label" for="grid-password">Expected Form Response</label>
         <select v-model.trim="apiResponse" class="form-input">
           <option value="">--SELECT ONE--</option>
-          <option value="XML">XML</option>
-          <option value="JSON">JSON</option>
+          <option value="Boolean">Boolean</option>
           <option value="Integer">Integer</option>
           <option value="String">String</option>
         </select>
         <p class="form-error" v-if="!isValidApiResponse">
           Please select a preferred response
         </p>
-      </div>
-    </div>
-
-    <div class="flex flex-wrap -mx-3 mb-6">
-      <div class="w-full px-3">
-        <label class="form-label" for="grid-password">Expected Form Method</label>
-        <select v-model.trim="apiMethod" class="form-input">
-          <option value="">--SELECT ONE--</option>
-          <option value="GET">GET</option>
-          <option value="POST">POST</option>
-          <option value="PUT">PUT</option>
-        </select>
-        <p class="form-error" v-if="!isValidApiMethod">Please select one method</p>
       </div>
     </div>
 
@@ -94,14 +85,13 @@ export default {
   data() {
     return {
       apiLanguage: "",
-      apiParameters: 0,
+      apiParameters: "",
       apiResponse: "",
-      apiMethod: "",
       apiParametersName: [],
+      apiParametersType: [],
       isValidApiProgLang: true,
       isValidApiParm: true,
       isValidApiResponse: true,
-      isValidApiMethod: true,
       isFormValid: false,
     };
   },
@@ -110,13 +100,9 @@ export default {
       this.isValidApiProgLang = this.apiLanguage !== "";
       this.isValidApiParm = this.apiParameters >= 1 && this.apiParameters <= 10;
       this.isValidApiResponse = this.apiResponse !== "";
-      this.isValidApiMethod = this.apiMethod !== "";
 
       this.isFormValid =
-        this.isValidApiParm &&
-        this.isValidApiProgLang &&
-        this.isValidApiResponse &&
-        this.isValidApiMethod;
+        this.isValidApiParm && this.isValidApiProgLang && this.isValidApiResponse;
     },
     submitForm() {
       this.validateForm();
@@ -128,8 +114,8 @@ export default {
             apiLanguage: this.apiLanguage,
             apiParameters: this.apiParameters,
             apiParametersName: this.apiParametersName,
+            apiParametersType: this.apiParametersType,
             apiResponse: this.apiResponse,
-            apiMethod: this.apiMethod,
           },
         });
       }
