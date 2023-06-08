@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "appwrite": "^11.0.0",
+    "axios": "^1.4.0",
     "codemirror": "^5.65.13",
     "codemirror-editor-vue3": "^2.3.0",
     "core-js": "^3.8.3",

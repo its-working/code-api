@@ -1,4 +1,4 @@
-{   
+{       
     "C": {
         "Syntax": "${returnType} myFunction(${parameters}) {\n    // Write your C code here\n}"
     },
