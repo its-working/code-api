@@ -36,7 +36,6 @@ export default {
         .join("&");
     },
     sendParm() {
-
       this.$emit('apiParms', this.testCase);
     }
   },

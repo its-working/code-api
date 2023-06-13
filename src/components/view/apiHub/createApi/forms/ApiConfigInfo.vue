@@ -21,14 +21,8 @@
     <div class="flex flex-wrap -mx-3 mb-6">
       <div class="w-full px-3">
         <label class="form-label" for="grid-password">Parameters</label>
-        <input
-          class="form-input"
-          v-model.number="apiParameters"
-          type="number"
-          placeholder="Number of parameters in your API"
-          min="1"
-          max="10"
-        />
+        <input class="form-input" v-model.number="apiParameters" type="number"
+          placeholder="Number of parameters in your API" min="1" max="10" />
         <p class="form-error" v-if="!isValidApiParm || apiParameters > 10">
           Minimum is 1, Maximum is 10
         </p>
@@ -37,22 +31,17 @@
       <div v-for="input in apiParameters > 10 ? 0 : apiParameters" :key="input">
         <div class="w-full px-3">
           <label class="form-label" for="grid-password">Parm Name {{ input }}</label>
-          <input
-            class="form-input"
-            v-model.number="apiParametersName[input - 1]"
-            type="text"
-            placeholder="Parm Name"
-          />
-          <select v-model.trim="apiParametersType[input - 1]" class="form-input">
+          <input class="form-input" v-model.number="apiParametersName[input - 1]" type="text" placeholder="Parm Name" />
+          <!-- <select v-model.trim="apiParametersType[input - 1]" class="form-input">
             <option value="BOOLEAN">Boolean</option>
             <option value="INTEGER">Integer</option>
             <option value="STRING">String</option>
-          </select>
+          </select> -->
         </div>
       </div>
     </div>
 
-    <div class="flex flex-wrap -mx-3 mb-6">
+    <!-- <div class="flex flex-wrap -mx-3 mb-6">
       <div class="w-full px-3">
         <label class="form-label" for="grid-password">Expected Form Response</label>
         <select v-model.trim="apiResponse" class="form-input">
@@ -65,7 +54,7 @@
           Please select a preferred response
         </p>
       </div>
-    </div>
+    </div> -->
 
     <div class="flex flex-wrap -mx-3 mb-6">
       <div class="flex justify-end w-full px-3">
@@ -84,9 +73,9 @@ export default {
     return {
       apiLanguage: "",
       apiParameters: "",
-      apiResponse: "",
+      // apiResponse: "",
       apiParametersName: [],
-      apiParametersType: [],
+      // apiParametersType: [],
       isValidApiProgLang: true,
       isValidApiParm: true,
       isValidApiResponse: true,
@@ -97,7 +86,7 @@ export default {
     validateForm() {
       this.isValidApiProgLang = this.apiLanguage !== "";
       this.isValidApiParm = this.apiParameters >= 1 && this.apiParameters <= 10;
-      this.isValidApiResponse = this.apiResponse !== "";
+      this.isValidApiResponse = this.apiResponse !== "";  
 
       this.isFormValid =
         this.isValidApiParm && this.isValidApiProgLang && this.isValidApiResponse;
@@ -112,8 +101,8 @@ export default {
             apiLanguage: this.apiLanguage,
             apiParameters: this.apiParameters,
             apiParametersName: this.apiParametersName,
-            apiParametersType: this.apiParametersType,
-            apiResponse: this.apiResponse,
+            // apiParametersType: this.apiParametersType,
+            // apiResponse: this.apiResponse,
           },
         });
       }

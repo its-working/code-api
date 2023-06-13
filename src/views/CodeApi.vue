@@ -111,9 +111,12 @@ export default {
     },
     setCode() {
       let code = this.codeSyntax;
-      // code.Synax.replace("${returnType}", this.returnType);
-      this.code = this.codeJson['PHP'].Syntax.replace("${function}", code).replace("${Parameters}", this.testCase);
-      console.log(this.code);
+
+      const replacedParameters = this.testCase.map(value => {
+        return !isNaN(value) ? value : "'" + value + "'";
+      });
+
+      this.code = this.codeJson['PHP'].Syntax.replace(/\$\{function\}/g, code).replace(/\$\{Parameters\}/g, replacedParameters.join(", "));
     },
     checkParm() {
       if (this.testCase.length === this.parametersCount) {
@@ -170,7 +173,6 @@ export default {
         if (this.apiLanguage === "PHP") {
           modifiedReturnType = dataTypeJson[this.apiLanguage][this.returnType];
         }
-
         // Update the codeSyntax data property
         return this.storeSyntax(
           syntax.Syntax.replace("${returnType}", modifiedReturnType)
