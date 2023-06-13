@@ -1,7 +1,9 @@
 <template>
   <div class="container mx-auto p-5">
     <div class="text-center my-6">
-      <h3 class="form-heading">Create Your <span class="magic">API Magic!</span></h3>
+      <h3 class="form-heading">
+        Create Your <span class="magic">API Magic!</span>
+      </h3>
     </div>
 
     <div class="flex flex-wrap -mx-3 mb-6">
@@ -13,7 +15,9 @@
           v-model.trim="apiName"
           placeholder="Give Your API a Unique Spell Name"
         />
-        <p class="form-error" v-if="!isValidApiName">Please enter a valid API name.</p>
+        <p class="form-error" v-if="!isValidApiName">
+          Please enter a valid API name.
+        </p>
       </div>
     </div>
 
@@ -34,20 +38,26 @@
 
     <div class="flex flex-wrap -mx-3 mb-6">
       <div class="w-full px-3">
-        <label class="form-label" for="grid-password">Expected Form Method</label>
+        <label class="form-label" for="grid-password"
+          >Expected Form Method</label
+        >
         <select v-model.trim="apiMethod" class="form-input">
           <option value="">--SELECT ONE--</option>
           <option value="GET">GET</option>
-          <option value="POST">POST</option>
-          <option value="PUT">PUT</option>
+          <option value="POST" disabled>POST <span>(coming soon)</span></option>
+          <option value="PUT" disabled>PUT <span>(coming soon)</span></option>
         </select>
-        <p class="form-error" v-if="!isValidApiMethod">Please select one method</p>
+        <p class="form-error" v-if="!isValidApiMethod">
+          Please select one method
+        </p>
       </div>
     </div>
 
     <div class="flex flex-wrap -mx-3 mb-6">
       <TagInput @apiTags="apiTags = $event" />
-      <p class="form-error" v-if="!isValidApiTags">Please enter at least one API tag.</p>
+      <p class="form-error" v-if="!isValidApiTags">
+        Please enter at least one API tag.
+      </p>
     </div>
 
     <div class="flex flex-wrap -mx-3 mb-6">

@@ -1,7 +1,7 @@
 <template>
   <div class="mx-3 w-full">
     <h6 class="form-label">Add a Tag:</h6>
-    <input type="text" class="form-input" placeholder="eg: Sorting + Enter" v-model.trim="newTag" @keydown.enter="addTag">
+    <input type="text" class="form-input" placeholder="eg: Name + Enter" v-model.trim="newTag" @keydown.enter="addTag">
     <Tag :tags="selectedTags" @removedTagId="removeTag"/>
   </div>
 </template>

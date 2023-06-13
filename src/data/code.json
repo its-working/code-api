@@ -1,0 +1,8 @@
+{
+    "PHP": {
+        "Syntax": "<?php ${function} myFunction(${Parameters}); ?>"
+    },
+    "PYTHON": {
+        "Syntax": " ${function} myFunction(${Parameters});"
+    }
+}

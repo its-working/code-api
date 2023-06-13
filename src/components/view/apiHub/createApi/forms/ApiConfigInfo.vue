@@ -9,10 +9,8 @@
         <label class="form-label" for="grid-password">Select Programming Language</label>
         <select v-model.trim="apiLanguage" class="form-input">
           <option value="">--SELECT ONE--</option>
-          <option value="C">C</option>
-          <option value="C++">C++</option>
-          <option value="PHP">PHP</option>
           <option value="PYTHON">Python</option>
+          <option value="PHP">PHP</option>
         </select>
         <p class="form-error" v-if="!isValidApiProgLang">
           Please select a preferred programming language
@@ -46,9 +44,9 @@
             placeholder="Parm Name"
           />
           <select v-model.trim="apiParametersType[input - 1]" class="form-input">
-            <option value="Boolean">Boolean</option>
-            <option value="Integer">Integer</option>
-            <option value="String">String</option>
+            <option value="BOOLEAN">Boolean</option>
+            <option value="INTEGER">Integer</option>
+            <option value="STRING">String</option>
           </select>
         </div>
       </div>
@@ -59,9 +57,9 @@
         <label class="form-label" for="grid-password">Expected Form Response</label>
         <select v-model.trim="apiResponse" class="form-input">
           <option value="">--SELECT ONE--</option>
-          <option value="Boolean">Boolean</option>
-          <option value="Integer">Integer</option>
-          <option value="String">String</option>
+          <option value="BOOLEAN">Boolean</option>
+          <option value="INTEGER">Integer</option>
+          <option value="STRING">String</option>
         </select>
         <p class="form-error" v-if="!isValidApiResponse">
           Please select a preferred response

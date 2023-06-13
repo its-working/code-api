@@ -19,7 +19,7 @@
   @apply bg-slate-900 shadow-slate-800 text-white shadow-md text-sm h-16 ;
 }
 .btn{
-  @apply shadow bg-indigo-600 transition-all duration-300 hover:bg-indigo-700 focus:outline-none text-white font-bold py-2 px-6 rounded;
+  @apply shadow bg-indigo-600 transition-all duration-300 hover:bg-indigo-700 focus:outline-none text-white font-bold py-2 px-6 rounded cursor-pointer;
 }
 #navBarContent{
   @apply fixed top-0 md:relative right-0 w-full sm:w-2/4 h-screen md:w-full md:h-full max-[767px]:bg-slate-950  flex-col md:flex-row justify-start md:justify-between items-center;
