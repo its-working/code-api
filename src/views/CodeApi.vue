@@ -30,7 +30,8 @@
             @beforeChange="beforeChange" />
         </div>
         <!-- Output screen -->
-        <div class="RunConsole p-2 w-full bg-slate-950 my-4 rounded mx-auto overflow-x-auto" style="min-height: 200px">
+        <div
+          class="RunConsole p-2 w-full bg-slate-950 my-4 scrollbar-customized rounded mx-auto overflow-x-auto min-h-[200px] max-h-[300px]">
           <h6 class="text-center font-bold underline underline-offset-8 mb-4">Output</h6>
           <p class="px-3" v-html="output"></p>
         </div>
@@ -42,8 +43,9 @@
       </div>
 
     </div>
-    <div class="btn text-2xl w-fit px-18 mx-auto">Save My API</div>
-
+    <form v-on:submit="saveAPI" class="w-full flex justify-center py-6">
+      <button type="submit" class="btn text-2xl w-fit px-18">Save My API</button>
+    </form>
 
   </div>
 </template>
@@ -66,6 +68,8 @@ import codeSyntaxJson from "/src/data/codeSyntax.json";
 import codeJson from "/src/data/code.json";
 import UrlComponent from "../components/view/codeApi/Url.vue";
 import axios from "axios";
+import { account, databases } from "/src/appwrite/appwriteConfig.js";
+import { v4 as uuidv4 } from "uuid";
 
 export default {
   name: "codeApi",
@@ -116,7 +120,7 @@ export default {
         return !isNaN(value) ? value : "'" + value + "'";
       });
 
-      this.code = this.codeJson['PHP'].Syntax.replace(/\$\{function\}/g, code).replace(/\$\{Parameters\}/g, replacedParameters.join(", "));
+      this.code = this.codeJson[this.apiLanguage].Syntax.replace(/\$\{function\}/g, code).replace(/\$\{Parameters\}/g, replacedParameters.join(", "));
     },
     checkParm() {
       if (this.testCase.length === this.parametersCount) {
@@ -127,6 +131,47 @@ export default {
         return false;
       }
     },
+    async saveAPI(e) {
+      e.preventDefault();
+      if (confirm("Are you sure you want to save this API?")) {
+        let code = this.codeSyntax;
+
+        try {
+          // Get the current user ID
+          const userIdResponse = await account.get();
+          const userId = userIdResponse.$id;
+          const ApiDetail = JSON.parse(localStorage.getItem("ApiDetails"));
+
+          console.log(ApiDetail['apiParametersName']);
+
+          const promise = databases.createDocument(
+            process.env.VUE_APP_APPWRITE_DATABASE_ID,
+            process.env.VUE_APP_APICODE_COLLECTION_ID,
+            uuidv4(),
+            {
+              code: code,
+              user_id: userId,
+              apiName: ApiDetail['apiName'],
+              Description: ApiDetail['apiDescription'],
+              apiParametersName: ApiDetail['apiParametersName'],
+              language: ApiDetail['apiLanguage'],
+            }
+          );
+
+          promise.then(
+            function (response) {
+              console.log(response);
+            },
+            function (error) {
+              console.log(error);
+            }
+          );
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    }
+    ,
     executeCode() {
       if (this.checkParm()) {
         // Make an HTTP POST request to the PHP backend endpoint
@@ -140,15 +185,20 @@ export default {
           .then((response) => {
             // Handle the response and update the output variable
             this.output = response.data;
-            console.log(2);
           })
           .catch((error) => {
             // Handle any errors
             console.error(error);
-            console.log(3);
           });
       }
-
+    },
+    checkUserLoggedIn() {
+      account
+        .get()
+        .catch(() => {
+          // Redirect the user to the home route if not logged in
+          this.$router.push({ name: "home" });
+        });
     },
   },
   computed: {
@@ -193,6 +243,7 @@ export default {
   },
   mounted() {
     this.codeTemplate;
+    this.checkUserLoggedIn();
   },
 };
 </script>

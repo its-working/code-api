@@ -3,6 +3,6 @@
         "Syntax": "<?php ${function} myFunction(${Parameters}); ?>"
     },
     "PYTHON": {
-        "Syntax": " ${function} myFunction(${Parameters});"
+        "Syntax": "${function}\nmyFunction(${Parameters})"
     }
 }
