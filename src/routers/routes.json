@@ -14,5 +14,17 @@
   "contact": {
     "name": "Contact",
     "path": "/contact"
+  },
+  "login": {
+    "name": "Login",
+    "path": "/login"
+  },
+  "register": {
+    "name": "Register",
+    "path": "/register"
+  },
+  "codeApi": {
+    "name": "CodeApi",
+    "path": "/api-hub/CodeApi"
   }
 }  
