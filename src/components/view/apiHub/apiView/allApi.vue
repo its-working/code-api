@@ -32,7 +32,7 @@
         <h5 class="font-bold border-b-2 w-fit mx-auto my-2">API URL:</h5>
         <div class="url bg-slate-800 p-2 overflow-y-auto rounded-lg my-3 max-w-[90%] mx-auto scrollbar-customized"
           style="white-space: nowrap">
-          https://{{ domain() }}/{{ this.data.user_id }}/{{ data.apiName }}?{{ getUrlParm() }}
+          https://{{ domain() }}/apiResponse?id={{ this.data.$id }}&name={{ data.apiName }}&{{ getUrlParm() }}
         </div>
       </div>
     </div>

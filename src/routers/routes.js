@@ -8,6 +8,7 @@ import loginView from "../views/Login.vue";
 import registerView from "../views/Register.vue";
 import codeApi from "../views/CodeApi.vue";
 import MyApisView from "../views/MyApis.vue";
+import SendApiResponse from "../views/ApiResponse.vue";
 
 const routes = [
   {
@@ -49,6 +50,11 @@ const routes = [
     path: "/My-Apis",
     name: "MyApis",
     component: MyApisView,
+  },
+  {
+    path: "/apiResponse",
+    name: "ApiResponse",
+    component: SendApiResponse,
   },
 ];
 const router = createRouter({

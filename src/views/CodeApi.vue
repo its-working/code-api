@@ -18,7 +18,7 @@
 
 
       <!-- URL IF GET REQUEST -->
-      <UrlComponent :parametersCount="parametersCount" :user_id="user_id" @apiParms="setParms" />
+      <UrlComponent :parametersCount="parametersCount" :unqid="unqId" @apiParms="setParms" />
       <span v-if="isParm" class="text-red-400 font-normal border border-red-400 px-3 py-2 rounded-md">Parameters are
         required</span>
 
@@ -91,7 +91,8 @@ export default {
       codeSyntaxJson: codeSyntaxJson,
       codeJson: codeJson,
       isParm: false,
-      user_id: ''
+      user_id: '',
+      unqId: ''
     };
   },
   created() {
@@ -143,12 +144,12 @@ export default {
           const userId = userIdResponse.$id;
           const ApiDetail = JSON.parse(localStorage.getItem("ApiDetails"));
 
-          console.log(ApiDetail['apiParametersName']);
+          const unqId = this.unqId;
 
           const promise = databases.createDocument(
             process.env.VUE_APP_APPWRITE_DATABASE_ID,
             process.env.VUE_APP_APICODE_COLLECTION_ID,
-            uuidv4(),
+            unqId,
             {
               code: code,
               user_id: userId,
@@ -244,6 +245,7 @@ export default {
   mounted() {
     this.codeTemplate;
     this.checkUserLoggedIn();
+    this.unqId = uuidv4();
   },
 };
 </script>

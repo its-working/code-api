@@ -1,4 +1,4 @@
-<template>
+<template>w
   <h4 class="mb-4 text-xl">Test Your API:</h4>
   <div v-for="x in parametersCount" :key="x" class="testCase flex flex-row items-center w-3/4 md:w-2/4 lg:w-2/5 mx-auto">
     <label style="white-space: nowrap">Parameter Value: {{ x }}</label>
@@ -6,7 +6,7 @@
   </div>
   <div class="url bg-slate-800 p-2 overflow-y-auto rounded-lg my-3 max-w-[90%] mx-auto scrollbar-customized"
     style="white-space: nowrap">
-    URL: https://{{ domain }}/{{ user_id }}/{{ apiName }}?{{ getUrlParm() }}
+    URL: https://{{ domain }}/apiResponse?id={{ unqid }}&name={{ apiName }}&{{ getUrlParm() }}
   </div>
 </template>
   
@@ -26,7 +26,7 @@ export default {
       type: Number,
       required: true,
     },
-    user_id: String
+    unqid: String
   },
   methods: {
     getUrlParm() {
@@ -44,7 +44,7 @@ export default {
     domain() {
       return window.location.hostname;
     },
- 
+
   },
   created() {
     const data = JSON.parse(localStorage.getItem("ApiDetails"));

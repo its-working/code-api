@@ -1,5 +1,5 @@
 <template>
-    <div v-if="isApiInfoVisible"
+    <div v-if="isApiInfoVisible && data != ''"
         class="modal top-0 left-0 bg-slate-800 z-30 bg-opacity-40 position fixed h-[calc(100vh-70px)] mt-[70px] w-screen max-w-screen  flex justify-center">
         <div
             class="apiInfo bg-slate-950 min-w-[400px] text-slate-200 max-w-[100vw-20px] p-3 my-3 max-h-full overflow-y-auto customized-scrollbar rounded-md text-center space-y-3">
@@ -32,7 +32,7 @@
                 <h5 class="font-bold border-b-2 w-fit mx-auto my-2">API URL:</h5>
                 <div class="url bg-slate-800 p-2 overflow-y-auto rounded-lg my-3 max-w-[90%] mx-auto scrollbar-customized"
                     style="white-space: nowrap">
-                    https://{{ domain() }}/{{ this.data.user_id }}/{{ data.apiName }}?{{ getUrlParm() }}
+                    https://{{ domain() }}/apiResponse?id={{ this.data.user_id }}&name={{ data.apiName }}&{{ getUrlParm() }}
                 </div>
             </div>
         </div>
@@ -66,7 +66,8 @@ export default {
             isApiAdded: false,
             apiData: [],
             isApiInfoVisible: false,
-            apiUserName: ''
+            apiUserName: '',
+            data: ''
         }
     },
     components: {
@@ -105,7 +106,6 @@ export default {
         },
         ToggleApiInfo(event, currData) {
             this.isApiInfoVisible = event;
-            console.log(this.isApiInfoVisible);
             this.data = currData;
         }
     },
