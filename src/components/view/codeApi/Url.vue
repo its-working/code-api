@@ -6,7 +6,7 @@
   </div>
   <div class="url bg-slate-800 p-2 overflow-y-auto rounded-lg my-3 max-w-[90%] mx-auto scrollbar-customized"
     style="white-space: nowrap">
-    URL: https://{{ domain }}/{{ getUserName }}/{{ apiName }}?{{ getUrlParm() }}
+    URL: https://{{ domain }}/{{ user_id }}/{{ apiName }}?{{ getUrlParm() }}
   </div>
 </template>
   
@@ -24,8 +24,9 @@ export default {
   props: {
     parametersCount: {
       type: Number,
-      required: true
+      required: true,
     },
+    user_id: String
   },
   methods: {
     getUrlParm() {
@@ -43,9 +44,7 @@ export default {
     domain() {
       return window.location.hostname;
     },
-    getUserName() {
-      return localStorage.getItem("username");
-    }
+ 
   },
   created() {
     const data = JSON.parse(localStorage.getItem("ApiDetails"));

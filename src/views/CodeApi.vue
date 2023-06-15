@@ -18,7 +18,7 @@
 
 
       <!-- URL IF GET REQUEST -->
-      <UrlComponent :parametersCount="parametersCount" @apiParms="setParms" />
+      <UrlComponent :parametersCount="parametersCount" :user_id="user_id" @apiParms="setParms" />
       <span v-if="isParm" class="text-red-400 font-normal border border-red-400 px-3 py-2 rounded-md">Parameters are
         required</span>
 
@@ -91,6 +91,7 @@ export default {
       codeSyntaxJson: codeSyntaxJson,
       codeJson: codeJson,
       isParm: false,
+      user_id: ''
     };
   },
   created() {
@@ -158,14 +159,12 @@ export default {
             }
           );
 
-          promise.then(
-            function (response) {
-              console.log(response);
-            },
-            function (error) {
-              console.log(error);
-            }
-          );
+          promise.then(() => {
+            // Redirect to the "MyApis" route with a success message in the query parameter
+            this.$router.push({ name: "MyApis", query: { success: "Api successfully added" } });
+          });
+
+
         } catch (error) {
           console.log(error);
         }
@@ -192,13 +191,14 @@ export default {
           });
       }
     },
-    checkUserLoggedIn() {
-      account
+    async checkUserLoggedIn() {
+      const promise = await account
         .get()
         .catch(() => {
           // Redirect the user to the home route if not logged in
           this.$router.push({ name: "home" });
         });
+      this.user_id = promise.$id;
     },
   },
   computed: {

@@ -7,6 +7,7 @@ import contactView from "../views/Contact.vue";
 import loginView from "../views/Login.vue";
 import registerView from "../views/Register.vue";
 import codeApi from "../views/CodeApi.vue";
+import MyApisView from "../views/MyApis.vue";
 
 const routes = [
   {
@@ -43,6 +44,11 @@ const routes = [
     path: "/api-hub/CodeApi",
     name: "codeApi",
     component: codeApi,
+  },
+  {
+    path: "/My-Apis",
+    name: "MyApis",
+    component: MyApisView,
   },
 ];
 const router = createRouter({
