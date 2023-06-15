@@ -32,8 +32,9 @@
         <h5 class="font-bold border-b-2 w-fit mx-auto my-2">API URL:</h5>
         <div class="url bg-slate-800 p-2 overflow-y-auto rounded-lg my-3 max-w-[90%] mx-auto scrollbar-customized"
           style="white-space: nowrap">
-          https://{{ domain() }}/apiResponse?id={{ this.data.$id }}&name={{ data.apiName }}&{{ getUrlParm() }}
+          {{ URL }}
         </div>
+        <button @click="copyToClipboard" class="btn">Copy URL</button>
       </div>
     </div>
   </div>
@@ -54,13 +55,22 @@ export default {
       apiData: [],
       isApiInfoVisible: false,
       data: [],
-      apiUserName: ''
+      apiUserName: '',
+      URL: ''
     };
   },
   components: {
     ApiView,
   },
   methods: {
+    copyToClipboard() {
+      const textarea = document.createElement('textarea');
+      textarea.value = this.URL;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+    },
     domain() {
       return window.location.hostname;
     },
@@ -86,6 +96,9 @@ export default {
     ToggleApiInfo(event, currData) {
       this.isApiInfoVisible = event;
       this.data = currData;
+      if (currData && currData != '') {
+        this.URL = "https://" + this.domain() + "/apiResponse?id=" + this.data.$id + "&" + this.getUrlParm()
+      }
     }
   },
   mounted() {
