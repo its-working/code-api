@@ -54,7 +54,7 @@ This will install all the necessary dependencies specified in the `package.json`
 
 ### Start a Local Development Server
 
-Start a local development server at **http://localhost:8080** with the following command:
+Start a local development server at **https://localhost:8080** with the following command:
 
 ```shell
 npm run serve
